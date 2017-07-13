@@ -127,17 +127,67 @@ public class LambdaDemo {
 }
 ```
 end
+ Sindhuja.R,Saritha.R
+ 
+Stream Min()
 
-# java 8 features
-# Stream Min
+Description
 
-description
+Returns the minimum element of this stream according to the provided Comparator. This is a special case of a reduction.
 
-```
-List<String> list = Arrays.asList("Gza","Gzb","Gox","Elephant");
-		String max = list.stream().max(Comparator.comparing(String::valueOf)).get();
-		System.out.println("Max:"+ max);
-		String min = list.stream().min(Comparator.comparing(String::valueOf)).get();
-		System.out.println("Min:"+ min);
-```
-# Stream Max
+This is a terminal operation.
+
+Syntax
+
+Optional<T> min(Comparator<? super T> comparator)
+Parameters:
+
+comparator - a non-interfering, stateless Comparator to compare elements of this stream
+Returns:
+
+An Optional describing the minimum element of this stream,or an empty Optional if the stream is empty
+Throws:
+
+NullPointerException - if the minimum element is null 
+Code
+
+  List<String> list = Arrays.asList("Gza","Gzb","Gox","Elephant");
+	String min = list.stream().min(Comparator.comparing(String::valueOf)).get();
+	System.out.println("Min:"+ min);
+Stream Max()
+
+Description
+
+Returns the maximum element of this stream according to the provided Comparator.This is a special case of a reduction.
+This is a terminal operation.
+Syntax
+
+Optional max(Comparator<? super T> comparator) Parameters
+
+comparator - a non-interfering, stateless Comparator to compare elements of this stream
+Returns:
+
+An Optional describing the maximum element of this stream, or an empty Optional if the stream is empty
+Throws:
+
+NullPointerException - if the maximum element is null 
+
+Code
+
+  List<String> list = Arrays.asList("Gza","Gzb","Gox","Elephant");
+   String max = list.stream().max(Comparator.comparing(String::valueOf)).get();
+   System.out.println("Max:"+ max);
+  
+Stream distinct()
+
+Description
+
+It removes the duplicate elements in the list
+Syntax
+
+Stream<T> distinct()
+Code
+
+Collection<String> list = Arrays.asList("A", "B", "C", "D", "A", "B", "C");
+List<String> distinctElements = list.stream().distinct().collect(Collectors.toList());
+System.out.println(distinctElements);
